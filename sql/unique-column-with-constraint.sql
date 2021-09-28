@@ -1,0 +1,3 @@
+ALTER TABLE products ADD CONSTRAINT user_id_not_null CHECK (user_id IS NOT NULL) NOT VALID;
+ALTER TABLE products VALIDATE CONSTRAINT user_id_not_null;
+ALTER TABLE products ALTER COLUMN user_id SET NOT NULL;
