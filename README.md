@@ -1,4 +1,4 @@
-PostgreSQLにおいて大きなテーブルのカラムをNOT NULLにするとき、SELECTがブロックされないか検証するリポジトリ。
+PostgreSQLにおいて大きなテーブルのカラムをNOT NULLにするとき、読み書きがブロックされないか検証するリポジトリ。
 
 ターミナル2つ開いて
 
@@ -9,7 +9,7 @@ $ docker-compose up
 
 ```bash
 # terminal 2
-$ ./loop-select.sh
+$ ./loop.sh
 ```
 
 を行った上で、さらに別ターミナルで
@@ -20,7 +20,7 @@ $ psql -U postgres -p 5444 -h localhost -f sql/ununique-column.sql
 $ psql -U postgres -p 5444 -h localhost -f sql/unique-column.sql
 ```
 
-するとSELECTが止まる。
+するとSELECTとUPDATEが止まる。
 
 ```bash
 # terminal 3
